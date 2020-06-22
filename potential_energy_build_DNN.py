@@ -75,26 +75,11 @@ class load_data:
     def get_total_atoms(self):
         return self._total_number;
     
-#don't need standerlization and normalization, because the inner coordinate are extracted from the XDATCAR
-#data_loader = load_data();
-#x_original=data_loader.read_xdatcar('/Users/shanyang/Desktop/Potential-ML/XDATCAR');
-#y_original=data_loader.read_energy('/Users/shanyang/Desktop/Potential-ML/Energy');
-    
-# may save the data as csv file in this part 
-#  create check point 
-#x = x_original ;
-# note: mayneed to try to scale the y according to the activation function in the last layer 
-#y = (y_original-y_original[0])*1000; # meV
-
-#np.savetxt('x',x)
-#np.savetxt('y',y)
         
 x=np.loadtxt('x')
 y=np.loadtxt('y')
 
 # train_test split 
-#x=data_loader.read_xdatcar('/Users/shanyang/Desktop/Potential-ML/XDATCAR-test');
-#y=data_loader.read_energy('/Users/shanyang/Desktop/Potential-ML/Energy-test');
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, shuffle = True ,random_state=42);
 
 # Create the deep neural network model
